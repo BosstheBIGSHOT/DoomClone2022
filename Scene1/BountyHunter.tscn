@@ -9,16 +9,20 @@ transform = Transform( 0.149269, 0.808333, -0.569488, -0.188385, 0.58864, 0.7861
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0518379, 3.6925, 20.4045 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0398416, 6.56157, 20.4444 )
 
-[node name="CSGCylinder" type="CSGCylinder" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.66839, 0 )
+[node name="Walls" type="CSGTorus" parent="."]
+transform = Transform( 1, 0, 0, 0, 2, 0, 0, 0, 1, -0.0316981, 9.6988, 0.051392 )
 use_collision = true
-radius = 32.936
-height = 18.6908
+inner_radius = 28.4602
+outer_radius = 41.0154
 
-[node name="CSGCylinder2" type="CSGCylinder" parent="CSGCylinder"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0380602, 1.42094, 0.00498581 )
-operation = 2
-radius = 27.9254
-height = 20.4722
+[node name="Floor" type="CSGCylinder" parent="Walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.74749, 0 )
+radius = 27.8533
+height = 2.24841
+
+[node name="Moat" type="CSGCylinder" parent="Walls"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.98231, 0 )
+radius = 37.5807
+height = 0.241805
