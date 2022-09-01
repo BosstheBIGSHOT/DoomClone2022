@@ -38,7 +38,7 @@ void fragment(){
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 1 )
-shader_param/out_color = Color( 0, 0.717647, 1, 1 )
+shader_param/out_color = Color( 0.0156863, 1, 0.976471, 1 )
 shader_param/amount = 0.2
 shader_param/beer_factor = 0.2
 
