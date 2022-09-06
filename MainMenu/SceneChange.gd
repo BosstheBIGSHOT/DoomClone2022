@@ -22,3 +22,11 @@ func _on_Play_pressed():
 
 func _on_Options_pressed():
 	get_tree().change_scene(scene_to_load)
+
+
+func _on_Buttons_pressed():
+		get_tree().change_scene(scene_to_load)
+
+
+func _on_ToBeContinued_pressed():
+	get_tree().quit()
