@@ -19,7 +19,7 @@ onready var camera = get_node("Camera")		# "attach" the camera to access from sc
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 # called when an input is detected
 func _input (event):
@@ -41,6 +41,8 @@ func _process (delta):
 	mouseDelta = Vector2()
 # called every physics step
 func _physics_process (delta):
+	if Input.is_action_just_pressed("ui_cancel"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	# reset the x and z velocity
 	playerVelocity.x = 0
 	playerVelocity.z = 0
