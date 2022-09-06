@@ -1,16 +1,51 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://MainMenu/SceneChange.gd" type="Script" id=1]
+
+[sub_resource type="BitmapFont" id=1]
 
 [node name="MainMenu" type="Node2D"]
 
 [node name="Play" type="Button" parent="."]
-margin_right = 12.0
-margin_bottom = 20.0
+margin_left = 424.292
+margin_top = 219.341
+margin_right = 541.292
+margin_bottom = 239.341
+custom_fonts/font = SubResource( 1 )
 text = "Play"
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 scene_to_load = "res://Scene1/BountyHunter.tscn"
+
+[node name="Options" type="Button" parent="."]
+margin_left = 424.439
+margin_top = 223.052
+margin_right = 541.439
+margin_bottom = 243.052
+text = "Options"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="Button" parent="."]
+margin_left = 390.755
+margin_top = 243.894
+margin_right = 507.755
+margin_bottom = 263.894
+text = "Buttons"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ToBeContinued" type="Button" parent="."]
+margin_left = 448.649
+margin_top = 236.315
+margin_right = 565.649
+margin_bottom = 256.315
+text = "To Be Continued"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="Play" to="Play" method="_on_Play_pressed"]
