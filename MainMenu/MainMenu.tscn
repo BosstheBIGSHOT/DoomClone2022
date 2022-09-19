@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://MainMenu/SceneChange.gd" type="Script" id=1]
 [ext_resource path="res://jokerman/Jokerman Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://textures/theboi.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 2 )
@@ -43,13 +44,14 @@ __meta__ = {
 }
 scene_to_load = "res://Options/Options.tscn"
 
-[node name="Buttons" type="Button" parent="."]
-margin_left = 441.256
-margin_top = 239.383
-margin_right = 558.256
-margin_bottom = 270.383
+[node name="theboi" type="Button" parent="."]
+margin_left = -0.4506
+margin_top = 0.417355
+margin_right = 161.549
+margin_bottom = 156.417
+rect_scale = Vector2( 0.1, 0.1 )
 custom_fonts/font = SubResource( 3 )
-text = "Buttons"
+icon = ExtResource( 3 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -69,5 +71,5 @@ __meta__ = {
 }
 [connection signal="pressed" from="Play" to="Play" method="_on_Play_pressed"]
 [connection signal="pressed" from="Options" to="Options" method="_on_Options_pressed"]
-[connection signal="pressed" from="Buttons" to="Buttons" method="_on_Buttons_pressed"]
+[connection signal="pressed" from="theboi" to="theboi" method="_on_Buttons_pressed"]
 [connection signal="pressed" from="ToBeContinued" to="ToBeContinued" method="_on_ToBeContinued_pressed"]
