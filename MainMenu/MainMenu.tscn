@@ -56,7 +56,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-scene_to_load = "res://Buttons/Buttons.tscn"
+scene_to_load = "res://theboi/theboi.tscn"
 
 [node name="ToBeContinued" type="Button" parent="."]
 margin_left = 285.598
