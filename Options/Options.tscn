@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://jokerman/Jokerman Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://textures/theboi.png" type="Texture" id=2]
+[ext_resource path="res://MainMenu/SceneChange.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
@@ -85,3 +86,16 @@ text = "Eternity"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Back" type="Button" parent="."]
+margin_left = 24.2106
+margin_top = 410.527
+margin_right = 36.2106
+margin_bottom = 430.527
+text = "Back"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+scene_to_load = "res://MainMenu/MainMenu.tscn"
+[connection signal="pressed" from="Back" to="Back" method="_on_Back_pressed"]
