@@ -1,28 +1,72 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://MainMenu/SceneChange.gd" type="Script" id=1]
 [ext_resource path="res://jokerman/Jokerman Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://textures/theboi.png" type="Texture" id=3]
+[ext_resource path="res://Tobec___.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=5]
+size = 50
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=1]
-font_data = ExtResource( 2 )
+size = 38
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=2]
-font_data = ExtResource( 2 )
+size = 38
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 38
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=3]
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=4]
-font_data = ExtResource( 2 )
+[node name="MainMenu" type="Control"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="MainMenu" type="Node2D"]
+[node name="Layout" type="VBoxContainer" parent="."]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Play" type="Button" parent="."]
-margin_left = 301.128
-margin_top = 189.861
-margin_right = 418.128
-margin_bottom = 220.861
+[node name="Title" type="HBoxContainer" parent="Layout"]
+margin_right = 372.0
+margin_bottom = 82.0
+size_flags_horizontal = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Layout/Title"]
+margin_right = 372.0
+margin_bottom = 82.0
+custom_fonts/font = SubResource( 5 )
+text = "Bounty Hunter"
+
+[node name="Main" type="HBoxContainer" parent="Layout"]
+margin_top = 86.0
+margin_right = 372.0
+margin_bottom = 301.0
+alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="Layout/Main"]
+margin_left = 30.0
+margin_right = 342.0
+margin_bottom = 215.0
+alignment = 1
+
+[node name="Play" type="Button" parent="Layout/Main/Buttons"]
+margin_right = 312.0
+margin_bottom = 69.0
 custom_fonts/font = SubResource( 1 )
 text = "Play"
 script = ExtResource( 1 )
@@ -31,11 +75,10 @@ __meta__ = {
 }
 scene_to_load = "res://Scene1/BountyHunter.tscn"
 
-[node name="Options" type="Button" parent="."]
-margin_left = 418.856
-margin_top = 189.061
-margin_right = 535.856
-margin_bottom = 220.061
+[node name="Options" type="Button" parent="Layout/Main/Buttons"]
+margin_top = 73.0
+margin_right = 312.0
+margin_bottom = 142.0
 custom_fonts/font = SubResource( 2 )
 text = "Options"
 script = ExtResource( 1 )
@@ -44,12 +87,23 @@ __meta__ = {
 }
 scene_to_load = "res://Options/Options.tscn"
 
+[node name="ToBeContinued" type="Button" parent="Layout/Main/Buttons"]
+margin_top = 146.0
+margin_right = 312.0
+margin_bottom = 215.0
+custom_fonts/font = SubResource( 4 )
+text = "To Be Continued"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="theboi" type="Button" parent="."]
-margin_left = -0.4506
-margin_top = 0.417355
-margin_right = 161.549
-margin_bottom = 156.417
-rect_scale = Vector2( 0.1, 0.1 )
+margin_left = -0.0104635
+margin_top = -0.0219551
+margin_right = 161.99
+margin_bottom = 155.978
+rect_scale = Vector2( 0.05, 0.05 )
 custom_fonts/font = SubResource( 3 )
 icon = ExtResource( 3 )
 script = ExtResource( 1 )
@@ -57,19 +111,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 scene_to_load = "res://theboi/theboi.tscn"
-
-[node name="ToBeContinued" type="Button" parent="."]
-margin_left = 285.598
-margin_top = 239.888
-margin_right = 430.598
-margin_bottom = 270.888
-custom_fonts/font = SubResource( 4 )
-text = "To Be Continued"
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-[connection signal="pressed" from="Play" to="Play" method="_on_Play_pressed"]
-[connection signal="pressed" from="Options" to="Options" method="_on_Options_pressed"]
+[connection signal="pressed" from="Layout/Main/Buttons/Play" to="Layout/Main/Buttons/Play" method="_on_Play_pressed"]
+[connection signal="pressed" from="Layout/Main/Buttons/Options" to="Layout/Main/Buttons/Options" method="_on_Options_pressed"]
+[connection signal="pressed" from="Layout/Main/Buttons/ToBeContinued" to="Layout/Main/Buttons/ToBeContinued" method="_on_ToBeContinued_pressed"]
 [connection signal="pressed" from="theboi" to="theboi" method="_on_Buttons_pressed"]
-[connection signal="pressed" from="ToBeContinued" to="ToBeContinued" method="_on_ToBeContinued_pressed"]
