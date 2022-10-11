@@ -38,3 +38,11 @@ func _on_The_Boi_pressed():
 
 func _on_Back_pressed():
 	get_tree().change_scene(scene_to_load)
+
+
+func _on_Menu_pressed():
+	get_tree().change_scene(scene_to_load)
+
+
+func _on_Quit_pressed():
+	get_tree().quit()
