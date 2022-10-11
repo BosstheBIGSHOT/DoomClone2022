@@ -28,4 +28,13 @@ func _on_Timer_timeout():
 
 func _on_Area_body_entered(body):
 	if (body.name == "Player"):
-		Global.player_health -= 10
+		if Global.easyMode:
+			Global.player_health -= 1
+		if Global.mediumMode:
+			Global.player_health -= 5
+		if Global.hardMode:
+			Global.player_health -= 10
+		if Global.expertMode:
+			Global.player_health -= 50
+		if Global.eternityMode:
+			Global.player_health -= 100
