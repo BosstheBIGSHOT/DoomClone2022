@@ -3,8 +3,11 @@ extends Node
 var current_score = 0
 var player_health = 10
 
-func _ready():
-	pass # Replace with function body.
+var easyMode = false
+var mediumMode = false
+var hardMode = false
+var expertMode = false
+var eternityMode = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
