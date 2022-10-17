@@ -14,12 +14,19 @@ var lookSensitivity = 0.5			# How fast camera moves. 'mouse sensitivity'.
 var playerVelocity : Vector3 = Vector3() 	# Players Velocity
 var mouseDelta : Vector2 = Vector2()			# How much the mouse has moved since last frame refresh.
 
+var currentHealth
+var ammo : int = 6
 # player components
+onready var bulletScene = preload("res://Player/Bullet.tscn")
+onready var bulletSpawn = get_node("Camera/bulletSpawn")
 onready var camera = get_node("Camera")		# "attach" the camera to access from script.
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	currentHealth = Global.player_health
+	$Camera/HPValue.text = str(currentHealth)
+	$Camera/AmmoAmount.text = str(ammo)
 	
 # called when an input is detected
 func _input (event):
@@ -39,6 +46,14 @@ func _process (delta):
   
 	# reset the mouse delta vector
 	mouseDelta = Vector2()
+	
+	if Input.is_action_just_pressed("shoot"):
+		shoot()
+	
+	if Global.player_health <= 0:
+		print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().change_scene("res://Gameover/Gameover.tscn")
 # called every physics step
 func _physics_process (delta):
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -72,7 +87,11 @@ func _physics_process (delta):
 	# jump if we press the jump button and are standing on the floor
 	if Input.is_action_pressed("jump") and is_on_floor():
 		playerVelocity.y = jumpStrength
-	if Global.player_health <= 0:
-		print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		get_tree().change_scene("res://Gameover/Gameover.tscn")
+
+func shoot ():
+	var bullet = bulletScene.instance()
+	get_node("/root/BountyHunter").add_child(bullet)
+	bullet.global_transform = bulletSpawn.global_transform
+	bullet.scale = Vector3(0.1,0.1,0.1)
+
+	ammo -= 1

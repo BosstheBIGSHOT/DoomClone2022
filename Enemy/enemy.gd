@@ -5,6 +5,7 @@ var path = []
 var path_node = 0
 var speed = 10
 onready var player = $"../../Player"
+var health = 100000
 
 func _ready():
 	pass
@@ -38,3 +39,8 @@ func _on_Area_body_entered(body):
 			Global.player_health -= 50
 		if Global.eternityMode:
 			Global.player_health -= 100
+
+func take_damage(damage):
+	health -= 50
+	if health <=0:
+		queue_free()
