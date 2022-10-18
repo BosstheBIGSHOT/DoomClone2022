@@ -136,6 +136,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 scene_to_load = "res://MainMenu/MainMenu.tscn"
+
 [connection signal="toggled" from="VBoxContainer/HBoxContainer/VBoxContainer/Easy" to="." method="_on_Easy_toggled"]
 [connection signal="toggled" from="VBoxContainer/HBoxContainer/VBoxContainer/Medium" to="." method="_on_Medium_toggled"]
 [connection signal="toggled" from="VBoxContainer/HBoxContainer/VBoxContainer/Hard" to="." method="_on_Hard_toggled"]
