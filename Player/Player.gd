@@ -1,5 +1,6 @@
 extends KinematicBody
 
+# variables like movement and the such
 # Physics
 var movementSpeed = 20.0 		# How fast the player can move.
 var jumpStrength = 5.0 		# How much force used to make player jump
@@ -14,7 +15,7 @@ var lookSensitivity = 0.5			# How fast camera moves. 'mouse sensitivity'.
 var playerVelocity : Vector3 = Vector3() 	# Players Velocity
 var mouseDelta : Vector2 = Vector2()			# How much the mouse has moved since last frame refresh.
 
-var currentHealth
+var currentHealth = Global.player_health
 var ammo : int = 6
 # player components
 onready var bulletScene = preload("res://Player/Bullet.tscn")
@@ -23,8 +24,8 @@ onready var camera = get_node("Camera")		# "attach" the camera to access from sc
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# hide the mouse
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	currentHealth = Global.player_health
 	$Camera/HPValue.text = str(currentHealth)
 	$Camera/AmmoAmount.text = str(ammo)
 	
@@ -40,16 +41,14 @@ func _process (delta):
 	camera.rotation_degrees -= Vector3(rad2deg(mouseDelta.y), 0, 0) * lookSensitivity * delta
 	# clamp the vertical camera rotation
 	camera.rotation_degrees.x = clamp(camera.rotation_degrees.x, minCamVerticalAngle, maxCamVerticalAngle)
-  
 	# rotate player along Y axis
 	rotation_degrees -= Vector3(0, rad2deg(mouseDelta.x), 0) * lookSensitivity * delta
-  
 	# reset the mouse delta vector
 	mouseDelta = Vector2()
-	
+	# shoot
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
-	
+	# die
 	if Global.player_health <= 0:
 		print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -81,17 +80,15 @@ func _physics_process (delta):
 	playerVelocity.x = (forward * input.y + right * input.x).x * movementSpeed
 	# apply gravity
 	playerVelocity.y -= gravity * delta
-#	print(playerVelocity.y)
 	# move the player
 	playerVelocity = move_and_slide(playerVelocity, Vector3.UP)
 	# jump if we press the jump button and are standing on the floor
 	if Input.is_action_pressed("jump") and is_on_floor():
 		playerVelocity.y = jumpStrength
-
+# shooting bullets
 func shoot ():
 	var bullet = bulletScene.instance()
 	get_node("/root/BountyHunter").add_child(bullet)
 	bullet.global_transform = bulletSpawn.global_transform
 	bullet.scale = Vector3(0.1,0.1,0.1)
-
 	ammo -= 1

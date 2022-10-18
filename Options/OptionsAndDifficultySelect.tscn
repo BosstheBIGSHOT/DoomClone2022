@@ -1,38 +1,42 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Persona 5 Font/p5hatty.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://textures/theboi.png" type="Texture" id=2]
+[ext_resource path="res://Options/Options.gd" type="Script" id=1]
 [ext_resource path="res://MainMenu/SceneChange.gd" type="Script" id=3]
-[ext_resource path="res://Options/Options.gd" type="Script" id=4]
+[ext_resource path="res://textures/theboi.png" type="Texture" id=4]
+[ext_resource path="res://Persona 5 Font/p5hatty.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
-font_data = ExtResource( 1 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 30
-font_data = ExtResource( 1 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 30
-font_data = ExtResource( 1 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 30
-font_data = ExtResource( 1 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 30
-font_data = ExtResource( 1 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=6]
 size = 30
-font_data = ExtResource( 1 )
+font_data = ExtResource( 5 )
 
-[node name="Options" type="Control"]
+[sub_resource type="DynamicFont" id=7]
+size = 30
+font_data = ExtResource( 5 )
+
+[node name="OptionsAndDifficultySelect" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 4 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -41,7 +45,7 @@ __meta__ = {
 position = Vector2( 11.7183, 11.252 )
 rotation = 2.41205
 scale = Vector2( 0.119999, 0.12021 )
-texture = ExtResource( 2 )
+texture = ExtResource( 4 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
@@ -52,15 +56,15 @@ __meta__ = {
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 172.0
+margin_top = 152.0
 margin_right = 1024.0
-margin_bottom = 428.0
+margin_bottom = 448.0
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 margin_left = 426.0
 margin_right = 597.0
-margin_bottom = 256.0
+margin_bottom = 296.0
 alignment = 1
 
 [node name="Easy" type="CheckButton" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
@@ -112,11 +116,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Back" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Start" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 220.0
 margin_right = 171.0
 margin_bottom = 256.0
 custom_fonts/font = SubResource( 6 )
+text = "Start"
+script = ExtResource( 3 )
+scene_to_load = "res://Scene1/BountyHunter.tscn"
+
+[node name="Back" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 260.0
+margin_right = 171.0
+margin_bottom = 296.0
+custom_fonts/font = SubResource( 7 )
 text = "Back"
 script = ExtResource( 3 )
 __meta__ = {
@@ -128,4 +141,5 @@ scene_to_load = "res://MainMenu/MainMenu.tscn"
 [connection signal="toggled" from="VBoxContainer/HBoxContainer/VBoxContainer/Hard" to="." method="_on_Hard_toggled"]
 [connection signal="toggled" from="VBoxContainer/HBoxContainer/VBoxContainer/Expert" to="." method="_on_Expert_toggled"]
 [connection signal="toggled" from="VBoxContainer/HBoxContainer/VBoxContainer/Eternity" to="." method="_on_Eternity_toggled"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Start" to="VBoxContainer/HBoxContainer/VBoxContainer/Start" method="_on_Start_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Back" to="VBoxContainer/HBoxContainer/VBoxContainer/Back" method="_on_Back_pressed"]

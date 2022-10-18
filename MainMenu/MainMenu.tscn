@@ -79,7 +79,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-scene_to_load = "res://Scene1/BountyHunter.tscn"
+scene_to_load = "res://Options/OptionsAndDifficultySelect.tscn"
 
 [node name="Options" type="Button" parent="Layout/Main/Buttons"]
 margin_top = 133.0
@@ -91,7 +91,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-scene_to_load = "res://Options/Options.tscn"
+scene_to_load = "res://Options/OptionsAndDifficultySelect.tscn"
 
 [node name="ToBeContinued" type="Button" parent="Layout/Main/Buttons"]
 margin_top = 266.0

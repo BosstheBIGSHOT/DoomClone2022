@@ -1,8 +1,10 @@
 extends Node
 
+# variables, speed, damage and the like
 var current_score = 0
 var player_health = 100
 
+# make difficulties save if options is closed
 var easyMode = false
 var mediumMode = false
 var hardMode = false
