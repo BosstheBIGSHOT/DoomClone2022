@@ -15,8 +15,6 @@ var lookSensitivity = 0.5			# How fast camera moves. 'mouse sensitivity'.
 var playerVelocity : Vector3 = Vector3() 	# Players Velocity
 var mouseDelta : Vector2 = Vector2()			# How much the mouse has moved since last frame refresh.
 
-var currentHealth = Global.player_health
-var ammo : int = 6
 # player components
 onready var bulletScene = preload("res://Player/Bullet.tscn")
 onready var bulletSpawn = get_node("Camera/bulletSpawn")
@@ -26,8 +24,8 @@ onready var camera = get_node("Camera")		# "attach" the camera to access from sc
 func _ready():
 	# hide the mouse
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	$Camera/HPValue.text = str(currentHealth)
-	$Camera/AmmoAmount.text = str(ammo)
+	$Camera/HPValue.text = str(Global.player_health)
+	$Camera/AmmoAmount.text = str(Global.ammo)
 	
 # called when an input is detected
 func _input (event):
@@ -91,4 +89,4 @@ func shoot ():
 	get_node("/root/BountyHunter").add_child(bullet)
 	bullet.global_transform = bulletSpawn.global_transform
 	bullet.scale = Vector3(0.1,0.1,0.1)
-	ammo -= 1
+	Global.ammo -= 1

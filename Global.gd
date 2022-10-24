@@ -3,6 +3,7 @@ extends Node
 # variables, speed, damage and the like
 var current_score = 0
 var player_health = 100
+var ammo = 6
 
 # make difficulties save if options is closed
 var easyMode = false

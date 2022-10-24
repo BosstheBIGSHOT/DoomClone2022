@@ -6,7 +6,7 @@ var path = []
 var path_node = 0
 var speed = 10
 onready var player = $"../../Player"
-var health = 1000
+var health = 100000
 
 func _ready():
 	pass

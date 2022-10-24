@@ -27,9 +27,6 @@ font_data = ExtResource( 2 )
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Layout" type="VBoxContainer" parent="."]
 anchor_right = 1.0
@@ -37,9 +34,6 @@ anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Title" type="HBoxContainer" parent="Layout"]
 margin_top = 19.0
