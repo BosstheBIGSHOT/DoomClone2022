@@ -46,8 +46,33 @@ func _process (delta):
 	# reset the mouse delta vector
 	mouseDelta = Vector2()
 	# shoot
-	if Input.is_action_just_pressed("shoot"):
-		shoot()
+	if Global.easyMode:
+		if Input.is_action_pressed("shoot"):
+			shoot()
+	if Global.mediumMode:
+		if Input.is_action_just_pressed("shoot"):
+			shoot()
+	if Global.hardMode:
+		if Input.is_action_just_pressed("shoot"):
+			shoot()
+	if Global.expertMode:
+		if Input.is_action_just_pressed("shoot"):
+			shoot()
+	if Global.eternityMode:
+		if Input.is_action_just_pressed("shoot"):
+			shoot()
+	# reload
+	if Input.is_action_pressed("reload"):
+		if Global.easyMode:
+			Global.ammo += 6
+		if Global.mediumMode:
+			Global.ammo = 6
+		if Global.hardMode:
+			Global.ammo = 6
+		if Global.expertMode:
+			Global.ammo = 6
+		if Global.eternityMode:
+			Global.ammo = 6
 	# die
 	if Global.player_health <= 0:
 		print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
@@ -93,5 +118,5 @@ func shoot ():
 		bullet.global_transform = bulletSpawn.global_transform
 		bullet.scale = Vector3(0.1,0.1,0.1)
 		Global.ammo -= 1
-		if Input.is_action_pressed("reload"):
-			Global.ammo += 6
+		
+

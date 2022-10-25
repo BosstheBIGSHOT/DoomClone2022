@@ -51,7 +51,7 @@ custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.556863, 0.0235294, 0.0235294, 1 )
 
 [node name="bulletSpawn" type="Spatial" parent="Camera"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.446372, -0.485111, -2.17715 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.480249, -0.485111, -2.17715 )
 
 [node name="Ammo" type="Label" parent="Camera"]
 margin_left = 2.65367
