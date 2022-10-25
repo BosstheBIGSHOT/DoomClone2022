@@ -6,7 +6,7 @@ var path = []
 var path_node = 0
 var speed = 10
 onready var player = $"../../Player"
-var health = 100000
+var health = 10000
 
 func _ready():
 	pass
@@ -29,6 +29,7 @@ func _on_Timer_timeout():
 
 # change the damage the enemy does to you on contact
 func _on_Area_body_entered(body):
+	print(body.name)
 	if (body.name == "Player"):
 		if Global.easyMode:
 			Global.player_health -= 1
@@ -43,6 +44,7 @@ func _on_Area_body_entered(body):
 
 # the damage the enemy takes
 func take_damage(damage):
-	health -= 5
+	health -= 100
+	print ("awawawawawawawah")
 	if health <=0:
 		queue_free()

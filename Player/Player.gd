@@ -35,6 +35,8 @@ func _input (event):
 		
 # called every frame
 func _process (delta):
+	$Camera/HPValue.text = str(Global.player_health)
+	$Camera/AmmoAmount.text = str(Global.ammo)
 	# rotate camera along X axis
 	camera.rotation_degrees -= Vector3(rad2deg(mouseDelta.y), 0, 0) * lookSensitivity * delta
 	# clamp the vertical camera rotation
@@ -85,8 +87,11 @@ func _physics_process (delta):
 		playerVelocity.y = jumpStrength
 # shooting bullets
 func shoot ():
-	var bullet = bulletScene.instance()
-	get_node("/root/BountyHunter").add_child(bullet)
-	bullet.global_transform = bulletSpawn.global_transform
-	bullet.scale = Vector3(0.1,0.1,0.1)
-	Global.ammo -= 1
+	if Global.ammo >= 1:
+		var bullet = bulletScene.instance()
+		get_node("/root/BountyHunter").add_child(bullet)
+		bullet.global_transform = bulletSpawn.global_transform
+		bullet.scale = Vector3(0.1,0.1,0.1)
+		Global.ammo -= 1
+		if Input.is_action_pressed("reload"):
+			Global.ammo += 6
