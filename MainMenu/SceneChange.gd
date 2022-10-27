@@ -21,3 +21,5 @@ func _on_Quit_pressed():
 	get_tree().quit()
 func _on_Start_pressed():
 	get_tree().change_scene(scene_to_load)
+func _on_Leave_pressed():
+	get_tree().quit()

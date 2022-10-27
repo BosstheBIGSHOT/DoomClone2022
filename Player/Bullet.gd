@@ -1,7 +1,7 @@
 extends Area
 
 # variables, speed, damage and the like
-var speed : float = -30000.0
+var speed : float = -3000.0
 var damage : int = 1
 
 func _process (delta):

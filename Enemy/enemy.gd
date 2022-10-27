@@ -6,7 +6,6 @@ var path = []
 var path_node = 0
 var speed = 10
 onready var player = $"../../Player"
-var health = 10000
 
 func _ready():
 	pass
@@ -44,7 +43,9 @@ func _on_Area_body_entered(body):
 
 # the damage the enemy takes
 func take_damage(damage):
-	health -= 100
+	Global.enemy_health -= 100
 	print ("awawawawawawawah")
-	if health <=0:
+	if Global.enemy_health <=0:
 		queue_free()
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().change_scene("res://Victory/Ween.tscn")

@@ -59,23 +59,23 @@ margin_bottom = 448.0
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
-margin_left = 426.0
-margin_right = 597.0
+margin_left = 403.0
+margin_right = 621.0
 margin_bottom = 296.0
 alignment = 1
 
 [node name="Easy" type="CheckButton" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_right = 171.0
+margin_right = 218.0
 margin_bottom = 40.0
 custom_fonts/font = SubResource( 1 )
-text = "Easy"
+text = "Matt Cheese"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Medium" type="CheckButton" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 44.0
-margin_right = 171.0
+margin_right = 218.0
 margin_bottom = 84.0
 custom_fonts/font = SubResource( 2 )
 text = "Medium"
@@ -85,7 +85,7 @@ __meta__ = {
 
 [node name="Hard" type="CheckButton" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 88.0
-margin_right = 171.0
+margin_right = 218.0
 margin_bottom = 128.0
 custom_fonts/font = SubResource( 3 )
 text = "Hard"
@@ -95,7 +95,7 @@ __meta__ = {
 
 [node name="Expert" type="CheckButton" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 132.0
-margin_right = 171.0
+margin_right = 218.0
 margin_bottom = 172.0
 custom_fonts/font = SubResource( 4 )
 text = "Expert"
@@ -105,7 +105,7 @@ __meta__ = {
 
 [node name="Eternity" type="CheckButton" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 176.0
-margin_right = 171.0
+margin_right = 218.0
 margin_bottom = 216.0
 custom_fonts/font = SubResource( 5 )
 text = "Eternity"
@@ -115,7 +115,7 @@ __meta__ = {
 
 [node name="Start" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 220.0
-margin_right = 171.0
+margin_right = 218.0
 margin_bottom = 256.0
 custom_fonts/font = SubResource( 6 )
 text = "Start"
@@ -124,7 +124,7 @@ scene_to_load = "res://Scene1/BountyHunter.tscn"
 
 [node name="Back" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 260.0
-margin_right = 171.0
+margin_right = 218.0
 margin_bottom = 296.0
 custom_fonts/font = SubResource( 7 )
 text = "Back"
@@ -133,7 +133,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 scene_to_load = "res://MainMenu/MainMenu.tscn"
-
 [connection signal="toggled" from="VBoxContainer/HBoxContainer/VBoxContainer/Easy" to="." method="_on_Easy_toggled"]
 [connection signal="toggled" from="VBoxContainer/HBoxContainer/VBoxContainer/Medium" to="." method="_on_Medium_toggled"]
 [connection signal="toggled" from="VBoxContainer/HBoxContainer/VBoxContainer/Hard" to="." method="_on_Hard_toggled"]

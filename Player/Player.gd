@@ -62,9 +62,7 @@ func _process (delta):
 		if Input.is_action_just_pressed("shoot"):
 			shoot()
 	# reload
-	if Input.is_action_pressed("reload"):
-		if Global.easyMode:
-			Global.ammo += 6
+	if Input.is_action_just_pressed("reload"):
 		if Global.mediumMode:
 			Global.ammo = 6
 		if Global.hardMode:
@@ -73,9 +71,15 @@ func _process (delta):
 			Global.ammo = 6
 		if Global.eternityMode:
 			Global.ammo = 6
+	if Input.is_action_pressed("reload"):
+		if Global.easyMode:
+			Global.ammo += 6
 	# die
 	if Global.player_health <= 0:
 		print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().change_scene("res://Gameover/Gameover.tscn")
+	if Global.ammo >=100:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().change_scene("res://Gameover/Gameover.tscn")
 # called every physics step

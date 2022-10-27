@@ -4,6 +4,7 @@ extends Node
 var current_score = 0
 var player_health = 100
 var ammo = 6
+var enemy_health = 10000
 
 # make difficulties save if options is closed
 var easyMode = false
