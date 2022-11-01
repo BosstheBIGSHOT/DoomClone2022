@@ -6,6 +6,8 @@ var path = []
 var path_node = 0
 var speed = 10
 onready var player = $"../../Player"
+onready var attackScene = preload("res://Enemy/agoofybullet.tscn")
+onready var enemybulletspawn = get_node("enemybulletspawn")
 
 func _ready():
 	pass
@@ -18,9 +20,11 @@ func _physics_process(delta):
 			path_node +=1
 		else:
 			move_and_slide(direction.normalized() * speed, Vector3.UP)
+	
 func move_to(target_pos):
 	path = nav.get_simple_path(global_transform.origin, target_pos)
 	path_node = 0
+	attack()
 
 # make the enemy pause, then repeat the chase
 func _on_Timer_timeout():
@@ -49,3 +53,9 @@ func take_damage(damage):
 		queue_free()
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().change_scene("res://Victory/Ween.tscn")
+		
+func attack():
+	var attack = attackScene.instance()
+	get_node("/root/BountyHunter").add_child(attack)
+	attack.global_transform = enemybulletspawn.global_transform
+	attack.scale = Vector3(0.1,0.1,0.1)
