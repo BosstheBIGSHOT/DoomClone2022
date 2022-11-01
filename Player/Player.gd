@@ -85,7 +85,7 @@ func _process (delta):
 # called every physics step
 func _physics_process (delta):
 	if Input.is_action_just_pressed("ui_cancel"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().quit()
 	# reset the x and z velocity
 	playerVelocity.x = 0
 	playerVelocity.z = 0
