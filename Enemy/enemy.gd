@@ -12,6 +12,12 @@ onready var enemybulletspawn = get_node("enemybulletspawn")
 func _ready():
 	pass
 
+func _process(delta):
+	#position of player minus enemy position will give us direction
+	var dir = player.get_transform().get_translation() - self.get_transform().get_translation()
+	#get angle from direction (Note roation is in radians)  
+	rotation = dir.angle()
+
 # make the enemy chase you
 func _physics_process(delta):
 	if path_node < path.size():
@@ -35,11 +41,11 @@ func _on_Area_body_entered(body):
 	print(body.name)
 	if (body.name == "Player"):
 		if Global.easyMode:
-			Global.player_health -= 1
-		if Global.mediumMode:
 			Global.player_health -= 5
-		if Global.hardMode:
+		if Global.mediumMode:
 			Global.player_health -= 10
+		if Global.hardMode:
+			Global.player_health -= 20
 		if Global.expertMode:
 			Global.player_health -= 50
 		if Global.eternityMode:
