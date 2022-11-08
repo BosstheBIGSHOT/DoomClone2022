@@ -86,11 +86,3 @@ radius = 0.1
 [node name="gun2" type="CSGCylinder" parent="Camera/gun"]
 transform = Transform( 1.50994, 0, 0, 0, 0.448521, 1.72927e-07, 0, 1.72927e-07, 1.50994, 0, 0, 0.114993 )
 radius = 0.1
-
-[node name="Label" type="Label" parent="Camera"]
-margin_right = 40.0
-margin_bottom = 14.0
-text = "The Goofy Lad HP"
-__meta__ = {
-"_edit_use_anchors_": false
-}

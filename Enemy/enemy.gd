@@ -12,12 +12,6 @@ onready var enemybulletspawn = get_node("enemybulletspawn")
 func _ready():
 	pass
 
-func _process(delta):
-	#position of player minus enemy position will give us direction
-	var dir = player.get_transform().get_translation() - self.get_transform().get_translation()
-	#get angle from direction (Note roation is in radians)  
-	rotation = dir.angle()
-
 # make the enemy chase you
 func _physics_process(delta):
 	if path_node < path.size():
